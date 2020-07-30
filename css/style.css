@@ -3589,8 +3589,16 @@ footer h1 {
 
 #news {
     background-image: url('../img/banner/image1.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-top: 30px;
     padding-bottom: 40px;
+}
+
+.title {
+    display: inline-block;
 }
 
 
