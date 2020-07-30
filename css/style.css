@@ -3601,5 +3601,11 @@ footer h1 {
     display: inline-block;
 }
 
+#obj,
+#inst,
+#disc {
+    display: none;
+}
+
 
 /*# sourceMappingURL=style.css.map */
