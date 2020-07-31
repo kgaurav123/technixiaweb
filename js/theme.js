@@ -96,7 +96,7 @@
             $(".testi_slider").owlCarousel({
                 loop: true,
                 margin: 0,
-                items: 1,
+                items: 3,
                 autoplay: 2500,
                 smartSpeed: 2500,
                 dots: true,
@@ -106,7 +106,7 @@
                         items: 1
                     },
                     991: {
-                        items: 1
+                        items: 3
                     }
                 }
             });
