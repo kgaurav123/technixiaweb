@@ -56,7 +56,7 @@
     <!--================ Start Header Menu Area =================-->
     <header class="header_area white-header">
         <div class="main_menu">
-           
+
 
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="container">
@@ -360,34 +360,35 @@
                                 <br>
 
                                 <!--Body-->
+                                <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off">
+                                    <i class="fa fa-user prefix grey-text"></i>
+                                    <input id="nameField" name="entry.2008660880" placeholder="Enter your name" type="text" required class="form-control" placeholder="Your name">
+                                    <label for="form-name"></label>
 
-                                <i class="fa fa-user prefix grey-text"></i>
-                                <input type="text" id="form-name" class="form-control" placeholder="Your name">
-                                <label for="form-name"></label>
 
+                                    <div class="md-form">
+                                        <i class="fa fa-envelope prefix grey-text"></i>
+                                        <input id="emailField" name="entry.1460631936" placeholder="Enter your email" type="email" required class="form-control">
+                                        <label for="form-email"></label>
+                                    </div>
 
-                                <div class="md-form">
-                                    <i class="fa fa-envelope prefix grey-text"></i>
-                                    <input type="text" id="form-email" class="form-control">
-                                    <label for="form-email">Your email</label>
-                                </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-tag prefix grey-text"></i>
+                                        <input id="mobField" name="entry.904964149" placeholder="Enter your Mobile Number" type="text" pattern="^\d{10}$" required class="form-control">
+                                        <label for="form-Subject"></label>
+                                    </div>
 
-                                <div class="md-form">
-                                    <i class="fa fa-tag prefix grey-text"></i>
-                                    <input type="text" id="form-Subject" class="form-control">
-                                    <label for="form-Subject">Subject</label>
-                                </div>
+                                    <div class="md-form">
+                                        <i class="fa fa-pencil prefix grey-text"></i>
+                                        <textarea id="form-text" name="entry.1878256062" placeholder="Send your Suggestions" class="form-control md-textarea" rows="3"></textarea>
+                                        <label for="form-text"></label>
+                                    </div>
 
-                                <div class="md-form">
-                                    <i class="fa fa-pencil-alt prefix grey-text"></i>
-                                    <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
-                                    <label for="form-text">Icon Prefix</label>
-                                </div>
-
-                                <div class="text-center mt-4">
-                                    <button class="btn btn-primary">Submit</button>
-                                </div>
-
+                                    <div class="text-center mt-4">
+                                        <button id="send" type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                                <h3 id="success-msg" style="text-align: center !important; margin-top:100px !important; display:none; color:#000"> Your Request has been successfully posted</h3>
                             </div>
 
                         </div>
@@ -444,7 +445,7 @@
                         <hr style="background-color: wheat;">
                     </div>
                     <div class="col-md-2">
-                          <div class="social">
+                        <div class="social">
 
                             <a href="https://www.facebook.com/Technixia/" target="_blank" class="fa fa-facebook fa-2x"></a>
 
@@ -462,7 +463,50 @@
 
     </footer>
     <!--================ End footer Area  =================-->
+    <script>
+        function postToGoogle() {
+            var field1 = $("#nameField").val();
+            var field2 = $("#emailField").val();
+            var field3 = $("#mobField").val();
+            var field4 = $("#suggestion").text();
 
+            if (field1 == "") {
+                alert('Please Fill Your Name');
+                document.getElementById("nameField").focus();
+                return false;
+            }
+            if (field2 == "") {
+                alert('Please Fill Your Email');
+                document.getElementById("emailField").focus();
+                return false;
+            }
+            if (field3 == "" || field3.length > 10 || field3.length < 10) {
+                alert('Please Fill Your Mobile Number');
+                document.getElementById("mobField").focus();
+                return false;
+            }
+
+            $.ajax({
+                url: "https://docs.google.com/spreadsheets/d/1a1Hkljw_J_gPLzR3ldSvSzhsbYIQlW6QkfwixR7vgKQ/edit?usp=sharing",
+                data: {
+                    "entry.2008660880": field1,
+                    "entry.1460631936": field2,
+                    "entry.904964149": field3,
+                    "entry.1878256062": field4
+                },
+                type: "POST",
+                dataType: "xml",
+                success: function(d) {},
+                error: function(x, y, z) {
+
+                    $('#success-msg').show();
+                    $('#form').hide();
+
+                }
+            });
+            return false;
+        }
+    </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://js.instamojo.com/v1/button.js"></script>
