@@ -398,7 +398,7 @@ button:focus {
 
 .home_banner_area {
     z-index: 1;
-    min-height: 900px;
+    min-height: 720px;
     position: relative;
     background: url(../img/banner/home-banner.jpg) no-repeat center;
     background-size: cover;
@@ -3448,6 +3448,12 @@ footer h1 {
     box-shadow: 2px 2px 3px #999;
     z-index: 100;
     right: 45px;
+}
+
+@media(max-width:768px) {
+    .whats-app {
+        right: 86px;
+    }
 }
 
 .my-float {

@@ -755,8 +755,8 @@
         <!--Section: Contact v.1-->
 
         <section id="contactmap">
-            <div class="col-md-12 m-3 pt-3 pb-3">
-                <h1 class="text-center" style="font-size: 3em;">Contact Us</h1>
+            <div class="col-md-12 m-3 p-3">
+                <h1 class="text-center " style="font-size: 3em;">Contact Us</h1>
             </div>
             <div class="container-fluid">
                 <div class="row">
@@ -778,25 +778,25 @@
                                 <!--Body-->
                                 <form id="form" target="_self" onsubmit="return postToGoogle();" action="" autocomplete="off">
                                     <i class="fa fa-user prefix grey-text"></i>
-                                    <input id="nameField" name="1166831893" placeholder="Enter your name" type="text" required class="form-control" placeholder="Your name">
+                                    <input id="nameField" name="1876604071" placeholder="Enter your name" type="text" required class="form-control" placeholder="Your name">
                                     <label for="form-name"></label>
 
 
                                     <div class="md-form">
                                         <i class="fa fa-envelope prefix grey-text"></i>
-                                        <input id="emailField" name="1388476692" placeholder="Enter your email" type="email" required class="form-control">
+                                        <input id="emailField" name="994237840" placeholder="Enter your email" type="email" required class="form-control">
                                         <label for="form-email"></label>
                                     </div>
 
                                     <div class="md-form">
                                         <i class="fa fa-tag prefix grey-text"></i>
-                                        <input id="mobField" name="692546891" placeholder="Enter your Mobile Number" type="text" pattern="^\d{10}$" required class="form-control">
+                                        <input id="mobField" name="2141672379" placeholder="Enter your Mobile Number" type="text" pattern="^\d{10}$" required class="form-control">
                                         <label for="form-Subject"></label>
                                     </div>
 
                                     <div class="md-form">
                                         <i class="fa fa-pencil prefix grey-text"></i>
-                                        <textarea id="form-text" name="549633413" placeholder="Send your Suggestions" class="form-control md-textarea" rows="3"></textarea>
+                                        <textarea id="suggestion" name="934624939" placeholder="Send your Suggestions" class="form-control md-textarea" rows="3"></textarea>
                                         <label for="form-text"></label>
                                     </div>
 
@@ -806,7 +806,6 @@
                                 </form>
                                 <h3 id="success-msg" style="text-align: center !important; margin-top:100px !important; display:none; color:#000"> Your Request has been successfully posted</h3>
                             </div>
-
                         </div>
                         <!--Form with header-->
 
@@ -817,7 +816,7 @@
                     <div class="col-lg-7">
 
                         <!--Google map-->
-                        <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 580px">
+                        <div id="map-container-google-11" class="z-depth-1-half map-container-6" style="height: 585px">
                             <iframe src="https://maps.google.com/maps?q=new%20delphi&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </div>
 
@@ -860,15 +859,13 @@
                     <div class="col-md-5 mt-2">
                         <hr style="background-color: wheat;">
                     </div>
-                    <div class="col-md-2">
-                        <div class="social">
+                    <div class="social">
 
-                            <a href="https://www.facebook.com/Technixia/" target="_blank" class="fa fa-facebook fa-2x"></a>
+                        <a href="https://www.facebook.com/Technixia/" target="_blank" class="fa fa-facebook fa-2x"></a>
 
-                            <a href="https://twitter.com/technixia/" target="_blank" class="fa fa-twitter fa-2x"></a>
-                            <a href="https://www.linkedin.com/company/technixia" target="_blank" class="fa fa-linkedin fa-2x"></a>
+                        <a href="https://twitter.com/technixia/" target="_blank" class="fa fa-twitter fa-2x"></a>
+                        <a href="https://www.linkedin.com/company/technixia" target="_blank" class="fa fa-linkedin fa-2x"></a>
 
-                        </div>
                     </div>
                     <div class="col-md-5 mt-2">
                         <hr style="background-color: wheat;">
@@ -884,39 +881,11 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
     <script>
-        const counters = document.querySelectorAll('.counter-num');
-        const speed = 1000; // The lower the slower
-
-        counters.forEach(counter => {
-            const updateCount = () => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-
-                // Lower inc to slow and higher to slow
-                const inc = target / speed;
-
-                // console.log(inc);
-                // console.log(count);
-
-                // Check if target is reached
-                if (count < target) {
-                    // Add inc to count and output in counter
-                    counter.innerText = count + inc;
-                    // Call function every ms
-                    setTimeout(updateCount, 1);
-                } else {
-                    counter.innerText = target;
-                }
-            };
-
-            updateCount();
-        });
-
         function postToGoogle() {
             var field1 = $("#nameField").val();
             var field2 = $("#emailField").val();
             var field3 = $("#mobField").val();
-            var field4 = $("#suggestion").text();
+            var field4 = $("#suggestion").val();
 
             if (field1 == "") {
                 alert('Please Fill Your Name');
@@ -934,16 +903,13 @@
                 return false;
             }
 
-
-
-
             $.ajax({
-                url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdywTLXEmOVwyyTKN98AEyAn_tD-Qorq_sRMm4doTvNlOKJ_g/formResponse",
+                url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLScyA6bZKixbjDe2PF93-DHXCW-AfIpEmMRLFTrVDIUuKdnWiQ/formResponse",
                 data: {
-                    "entry.1166831893": field1,
-                    "entry.1388476692": field2,
-                    "entry.692546891": field3,
-                    "entry.549633413": field4
+                    "entry.1876604071": field1,
+                    "entry.994237840": field2,
+                    "entry.2141672379": field3,
+                    "entry.934624939": field4
                 },
                 type: "POST",
                 dataType: "xml",
